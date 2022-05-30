@@ -13,9 +13,10 @@ namespace WindowsFormsApp1.DTO.DTO_Person
     {
         public Customer()
         {
-            Orders = new HashSet<Order>();
+            _Orders = new HashSet<Order>();
         }
         public bool _VIP { get; set; }
-        public virtual ICollection<Order> Orders { get; set; }
+        //Navigation Properties
+        public virtual ICollection<Order> _Orders { get; set; }
     }
 }
