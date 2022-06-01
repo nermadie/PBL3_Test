@@ -17,8 +17,6 @@ namespace WindowsFormsApp1
         }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<TicketOrder>()
-                .HasKey(o => new { o._IDOrder, o._IDShowTime });
         }
         public virtual DbSet<Customer> _Customers { get; set; }
         public virtual DbSet<Employee> _Employees { get; set; }

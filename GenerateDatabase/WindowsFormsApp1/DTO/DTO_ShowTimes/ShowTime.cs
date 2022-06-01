@@ -15,11 +15,10 @@ namespace WindowsFormsApp1.DTO.DTO_ShowTimes
         {
             _TicketOrders = new HashSet<TicketOrder>();
         }
-        [Key]
-        [Required]
-        public string _IDShowTime { get; set; }
         public string _IDMovie { get; set; }
+        [Key, Column(Order = 1)]
         public string _IDRoom { get; set; }
+        [Key, Column(Order = 2)]
         public DateTime _Time { get; set; }
         public string _Seat { get; set; }
         public int _TicketPrice { get; set; }

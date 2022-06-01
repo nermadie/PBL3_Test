@@ -1,0 +1,237 @@
+using System;
+using System.Collections.Generic;
+using System.Data.Entity;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using WindowsFormsApp1.DTO.DTO_Order;
+using WindowsFormsApp1.DTO.DTO_Person;
+using WindowsFormsApp1.DTO.DTO_PopcornDrink;
+using WindowsFormsApp1.DTO.DTO_ShowTimes;
+
+namespace WindowsFormsApp1
+{
+    public class CreateDB : DropCreateDatabaseIfModelChanges<QLCinema>
+    {
+        protected override void Seed(QLCinema context)
+        {
+            context._Customers.AddRange(new Customer[]
+            {
+                new Customer{ _IDPerson = "customer000001", _NamePerson = "NVA", _Phone = "0123123", _Address = "38 Do Anh Han", _Gender = true, _Birth = new DateTime(1999, 12, 25), _Username = "username1", _Password = "password1", _VIP = false},
+                new Customer{ _IDPerson = "customer000002", _NamePerson = "NVB", _Phone = "0123124", _Address = "12 Truong Chinh", _Gender = true, _Birth = new DateTime(1960, 10, 26), _Username = "username2", _Password = "password2", _VIP = true},
+                new Customer{ _IDPerson = "customer000003", _NamePerson = "NVC", _Phone = "0123125", _Address = "50 Tran Duy Hung", _Gender = true, _Birth = new DateTime(2002, 2, 1), _Username = "username3", _Password = "password3", _VIP = false},
+                new Customer{ _IDPerson = "customer000004", _NamePerson = "NVD", _Phone = "0123126", _Address = "38 Nguyen Tat Thanh", _Gender = false, _Birth = new DateTime(1962, 12, 25), _Username = "username4", _Password = "password4", _VIP = true},
+                new Customer{ _IDPerson = "customer000005", _NamePerson = "NVE", _Phone = "0123127", _Address = "21 Pham Ngu Lao", _Gender = false, _Birth = new DateTime(2000, 12, 15), _Username = "username5", _Password = "password5", _VIP = true},
+                new Customer{ _IDPerson = "customer000006", _NamePerson = "NVF", _Phone = "0123128", _Address = "Nha Trang", _Gender = true, _Birth = new DateTime(1973, 12, 25), _Username = "username6", _Password = "password6", _VIP = false},
+                new Customer{ _IDPerson = "customer000007", _NamePerson = "NVA", _Phone = "0123129", _Address = "Pentagon", _Gender = false, _Birth = new DateTime(1945, 12, 25), _Username = "username7", _Password = "password7", _VIP = false},
+                new Customer{ _IDPerson = "customer000008", _NamePerson = "NVA", _Phone = "0123130", _Address = "14 Ngu Hanh Son", _Gender = true, _Birth = new DateTime(1986, 12, 25), _Username = "username8", _Password = "password8", _VIP = true},
+                new Customer{ _IDPerson = "customer000009", _NamePerson = "NVB", _Phone = "0123131", _Address = "38 Nguyen Van Linh", _Gender = true, _Birth = new DateTime(2010, 12, 25), _Username = "username9", _Password = "password9", _VIP = false},
+                new Customer{ _IDPerson = "customer000010", _NamePerson = "NVC", _Phone = "0123132", _Address = "234 Le Duan", _Gender = true, _Birth = new DateTime(2016, 12, 25), _Username = "username10", _Password = "password10", _VIP = false},
+            });
+            context._Employees.AddRange(new Employee[]
+            {
+
+                new Employee{ _IDPerson = "employee000001", _NamePerson = "NVA", _Phone = "0123123", _Address = "38 Do Anh Han", _Gender = true, _Birth = new DateTime(1999, 12, 25), _Username = "username1", _Password = "password1", _Shift = 1, _Wage = 5000000},
+                new Employee{ _IDPerson = "employee000002", _NamePerson = "NVB", _Phone = "0123124", _Address = "12 Truong Chinh", _Gender = true, _Birth = new DateTime(1960, 10, 26), _Username = "username2", _Password = "password2", _Shift = 1, _Wage = 5000000},
+                new Employee{ _IDPerson = "employee000003", _NamePerson = "NVC", _Phone = "0123125", _Address = "50 Tran Duy Hung", _Gender = true, _Birth = new DateTime(2002, 2, 1), _Username = "username3", _Password = "password3",  _Shift = 1, _Wage = 5000000},
+                new Employee{ _IDPerson = "employee000004", _NamePerson = "NVD", _Phone = "0123126", _Address = "38 Nguyen Tat Thanh", _Gender = false, _Birth = new DateTime(1962, 12, 25), _Username = "username4", _Password = "password4",  _Shift = 1, _Wage = 5000000},
+                new Employee{ _IDPerson = "employee000005", _NamePerson = "NVE", _Phone = "0123127", _Address = "21 Pham Ngu Lao", _Gender = false, _Birth = new DateTime(2000, 12, 15), _Username = "username5", _Password = "password5",  _Shift = 2, _Wage = 6000000},
+                new Employee{ _IDPerson = "employee000006", _NamePerson = "NVF", _Phone = "0123128", _Address = "Nha Trang", _Gender = true, _Birth = new DateTime(1973, 12, 25), _Username = "username6", _Password = "password6", _Shift = 2, _Wage = 6000000},
+                new Employee{ _IDPerson = "employee000007", _NamePerson = "NVA", _Phone = "0123129", _Address = "Pentagon", _Gender = false, _Birth = new DateTime(1945, 12, 25), _Username = "username7", _Password = "password7", _Shift = 2, _Wage = 6000000},
+                new Employee{ _IDPerson = "employee000008", _NamePerson = "NVA", _Phone = "0123130", _Address = "14 Ngu Hanh Son", _Gender = true, _Birth = new DateTime(1986, 12, 25), _Username = "username8", _Password = "password8", _Shift = 2, _Wage = 6000000},
+                new Employee{ _IDPerson = "employee000009", _NamePerson = "NVB", _Phone = "0123131", _Address = "38 Nguyen Van Linh", _Gender = true, _Birth = new DateTime(2010, 12, 25), _Username = "username9", _Password = "password9", _Shift = 3, _Wage = 9000000},
+                new Employee{ _IDPerson = "employee000010", _NamePerson = "NVC", _Phone = "0123132", _Address = "234 Le Duan", _Gender = true, _Birth = new DateTime(2016, 12, 25), _Username = "username10", _Password = "password10", _Shift = 3, _Wage = 9000000},
+            });
+            context._Orders.AddRange(new Order[]
+            {
+                new Order{_IDOrder = "order000000001", _IDCustomer = "customer000001", _TimeOrder = new DateTime(2015, 12, 25), _Code = "sadad"},
+                new Order{_IDOrder = "order000000002", _IDCustomer = "customer000002", _TimeOrder = new DateTime(2015, 12, 25), _Code = "sadafsq"},
+                new Order{_IDOrder = "order000000003", _IDCustomer = "customer000003", _TimeOrder = new DateTime(2015, 12, 25), _Code = ""},
+                new Order{_IDOrder = "order000000004", _IDCustomer = "customer000004", _TimeOrder = new DateTime(2015, 12, 25), _Code = ""},
+                new Order{_IDOrder = "order000000005", _IDCustomer = "customer000005", _TimeOrder = new DateTime(2015, 12, 25), _Code = "werwet"},
+                new Order{_IDOrder = "order000000006", _IDCustomer = "customer000006", _TimeOrder = new DateTime(2015, 12, 25), _Code = "wetgds"},
+                new Order{_IDOrder = "order000000007", _IDCustomer = "customer000007", _TimeOrder = new DateTime(2018, 12, 25), _Code = ""},
+                new Order{_IDOrder = "order000000008", _IDCustomer = "customer000008", _TimeOrder = new DateTime(2018, 12, 25), _Code = ""},
+                new Order{_IDOrder = "order000000009", _IDCustomer = "customer000009", _TimeOrder = new DateTime(2017, 12, 25), _Code = ""},
+                new Order{_IDOrder = "order000000010", _IDCustomer = "customer000001", _TimeOrder = new DateTime(2019, 12, 25), _Code = "dsfsdf125"},
+                new Order{_IDOrder = "order000000011", _IDCustomer = "customer000001", _TimeOrder = new DateTime(2020, 12, 25), _Code = ""},
+                new Order{_IDOrder = "order000000012", _IDCustomer = "customer000001", _TimeOrder = new DateTime(2021, 12, 25), _Code = ""},
+                new Order{_IDOrder = "order000000013", _IDCustomer = "customer000001", _TimeOrder = new DateTime(2021, 12, 25), _Code = ""},
+                new Order{_IDOrder = "order000000014", _IDCustomer = "customer000001", _TimeOrder = new DateTime(2021, 12, 25), _Code = ""},
+                new Order{_IDOrder = "order000000015", _IDCustomer = "customer000001", _TimeOrder = new DateTime(2021, 12, 25), _Code = "ha46sgt23"},
+                new Order{_IDOrder = "order000000016", _IDCustomer = "customer000002", _TimeOrder = new DateTime(2021, 12, 25), _Code = ""},
+                new Order{_IDOrder = "order000000017", _IDCustomer = "customer000003", _TimeOrder = new DateTime(2011, 12, 25), _Code = ""},
+                new Order{_IDOrder = "order000000018", _IDCustomer = "customer000004", _TimeOrder = new DateTime(2012, 12, 25), _Code = ""},
+                new Order{_IDOrder = "order000000019", _IDCustomer = "customer000005", _TimeOrder = new DateTime(2013, 12, 25), _Code = ""},
+                new Order{_IDOrder = "order000000020", _IDCustomer = "customer000006", _TimeOrder = new DateTime(2014, 12, 25), _Code = ""},
+                new Order{_IDOrder = "order000000021", _IDCustomer = "customer000009", _TimeOrder = new DateTime(2018, 12, 25), _Code = "dsf244tsdg"},
+                new Order{_IDOrder = "order000000022", _IDCustomer = "customer000008", _TimeOrder = new DateTime(2018, 12, 25), _Code = ""},
+                new Order{_IDOrder = "order000000023", _IDCustomer = "customer000007", _TimeOrder = new DateTime(2018, 12, 25), _Code = ""},
+                new Order{_IDOrder = "order000000024", _IDCustomer = "customer000006", _TimeOrder = new DateTime(2018, 12, 25), _Code = ""},
+                new Order{_IDOrder = "order000000025", _IDCustomer = "customer000003", _TimeOrder = new DateTime(2018, 12, 25), _Code = ""},
+                new Order{_IDOrder = "order000000026", _IDCustomer = "customer000004", _TimeOrder = new DateTime(2018, 12, 25), _Code = "35sdg325sdg"},
+                new Order{_IDOrder = "order000000027", _IDCustomer = "customer000010", _TimeOrder = new DateTime(2018, 12, 25), _Code = ""},
+                new Order{_IDOrder = "order000000028", _IDCustomer = "customer000010", _TimeOrder = new DateTime(2018, 12, 25), _Code = ""},
+                new Order{_IDOrder = "order000000029", _IDCustomer = "customer000001", _TimeOrder = new DateTime(2015, 12, 25), _Code = ""},
+                new Order{_IDOrder = "order000000030", _IDCustomer = "customer000001", _TimeOrder = new DateTime(2015, 12, 25), _Code = "3245gsdg2465"},
+            });
+            context._PopcornDrinkOrders.AddRange(new PopcornDrinkOrder[]
+            {
+                new PopcornDrinkOrder{_IDPopcornDrinkOrder = "pdorder000000001", _IDOrder = "oder000000001", _NamePopcornDrink = "Bap size S", _PopcornDrinkPrice = 10000, _Quantity = 2},
+                new PopcornDrinkOrder{_IDPopcornDrinkOrder = "pdorder000000002", _IDOrder = "oder000000001", _NamePopcornDrink = "Pepsi size L", _PopcornDrinkPrice = 20000, _Quantity = 1},
+                new PopcornDrinkOrder{_IDPopcornDrinkOrder = "pdorder000000003", _IDOrder = "oder000000002", _NamePopcornDrink = "Bap size L", _PopcornDrinkPrice = 20000, _Quantity = 2},
+                new PopcornDrinkOrder{_IDPopcornDrinkOrder = "pdorder000000004", _IDOrder = "oder000000002", _NamePopcornDrink = "Pepsi size M", _PopcornDrinkPrice = 18000, _Quantity = 1},
+                new PopcornDrinkOrder{_IDPopcornDrinkOrder = "pdorder000000005", _IDOrder = "oder000000003", _NamePopcornDrink = "Bap size S", _PopcornDrinkPrice = 10000, _Quantity = 2},
+                new PopcornDrinkOrder{_IDPopcornDrinkOrder = "pdorder000000006", _IDOrder = "oder000000003", _NamePopcornDrink = "Pepsi size S", _PopcornDrinkPrice = 10000, _Quantity = 2},
+                new PopcornDrinkOrder{_IDPopcornDrinkOrder = "pdorder000000007", _IDOrder = "oder000000004", _NamePopcornDrink = "Bap size S", _PopcornDrinkPrice = 10000, _Quantity = 2},
+                new PopcornDrinkOrder{_IDPopcornDrinkOrder = "pdorder000000008", _IDOrder = "oder000000004", _NamePopcornDrink = "Bap size M", _PopcornDrinkPrice = 18000, _Quantity = 2},
+                new PopcornDrinkOrder{_IDPopcornDrinkOrder = "pdorder000000009", _IDOrder = "oder000000004", _NamePopcornDrink = "Pepsi size M", _PopcornDrinkPrice = 18000, _Quantity = 2},
+                new PopcornDrinkOrder{_IDPopcornDrinkOrder = "pdorder000000010", _IDOrder = "oder000000005", _NamePopcornDrink = "Bap size L", _PopcornDrinkPrice = 10000, _Quantity = 2},
+                new PopcornDrinkOrder{_IDPopcornDrinkOrder = "pdorder000000011", _IDOrder = "oder000000005", _NamePopcornDrink = "Bap size S", _PopcornDrinkPrice = 10000, _Quantity = 1},
+                new PopcornDrinkOrder{_IDPopcornDrinkOrder = "pdorder000000012", _IDOrder = "oder000000006", _NamePopcornDrink = "Bap size S", _PopcornDrinkPrice = 10000, _Quantity = 2},
+                new PopcornDrinkOrder{_IDPopcornDrinkOrder = "pdorder000000013", _IDOrder = "oder000000007", _NamePopcornDrink = "Bap size S", _PopcornDrinkPrice = 10000, _Quantity = 3},
+                new PopcornDrinkOrder{_IDPopcornDrinkOrder = "pdorder000000014", _IDOrder = "oder000000007", _NamePopcornDrink = "Bap size S", _PopcornDrinkPrice = 10000, _Quantity = 4},
+                new PopcornDrinkOrder{_IDPopcornDrinkOrder = "pdorder000000015", _IDOrder = "oder000000008", _NamePopcornDrink = "Bap size S", _PopcornDrinkPrice = 10000, _Quantity = 5},
+                new PopcornDrinkOrder{_IDPopcornDrinkOrder = "pdorder000000016", _IDOrder = "oder000000008", _NamePopcornDrink = "Bap size S", _PopcornDrinkPrice = 10000, _Quantity = 1},
+                new PopcornDrinkOrder{_IDPopcornDrinkOrder = "pdorder000000017", _IDOrder = "oder000000009", _NamePopcornDrink = "Bap size S", _PopcornDrinkPrice = 10000, _Quantity = 2},
+                new PopcornDrinkOrder{_IDPopcornDrinkOrder = "pdorder000000018", _IDOrder = "oder000000009", _NamePopcornDrink = "Bap size S", _PopcornDrinkPrice = 10000, _Quantity = 2},
+                new PopcornDrinkOrder{_IDPopcornDrinkOrder = "pdorder000000019", _IDOrder = "oder000000009", _NamePopcornDrink = "Bap size S", _PopcornDrinkPrice = 10000, _Quantity = 2},
+                new PopcornDrinkOrder{_IDPopcornDrinkOrder = "pdorder000000020", _IDOrder = "oder000000010", _NamePopcornDrink = "Bap size S", _PopcornDrinkPrice = 10000, _Quantity = 1},
+                new PopcornDrinkOrder{_IDPopcornDrinkOrder = "pdorder000000021", _IDOrder = "oder000000010", _NamePopcornDrink = "Bap size S", _PopcornDrinkPrice = 10000, _Quantity = 2},
+                new PopcornDrinkOrder{_IDPopcornDrinkOrder = "pdorder000000022", _IDOrder = "oder000000011", _NamePopcornDrink = "Bap size S", _PopcornDrinkPrice = 10000, _Quantity = 2},
+                new PopcornDrinkOrder{_IDPopcornDrinkOrder = "pdorder000000023", _IDOrder = "oder000000012", _NamePopcornDrink = "Bap size S", _PopcornDrinkPrice = 10000, _Quantity = 2},
+                new PopcornDrinkOrder{_IDPopcornDrinkOrder = "pdorder000000024", _IDOrder = "oder000000012", _NamePopcornDrink = "Bap size S", _PopcornDrinkPrice = 10000, _Quantity = 1},
+                new PopcornDrinkOrder{_IDPopcornDrinkOrder = "pdorder000000025", _IDOrder = "oder000000013", _NamePopcornDrink = "Bap size S", _PopcornDrinkPrice = 10000, _Quantity = 2},
+                new PopcornDrinkOrder{_IDPopcornDrinkOrder = "pdorder000000026", _IDOrder = "oder000000013", _NamePopcornDrink = "Bap size S", _PopcornDrinkPrice = 10000, _Quantity = 2},
+                new PopcornDrinkOrder{_IDPopcornDrinkOrder = "pdorder000000027", _IDOrder = "oder000000014", _NamePopcornDrink = "Bap size S", _PopcornDrinkPrice = 10000, _Quantity = 1},
+                new PopcornDrinkOrder{_IDPopcornDrinkOrder = "pdorder000000028", _IDOrder = "oder000000014", _NamePopcornDrink = "Bap size S", _PopcornDrinkPrice = 10000, _Quantity = 2},
+                new PopcornDrinkOrder{_IDPopcornDrinkOrder = "pdorder000000029", _IDOrder = "oder000000015", _NamePopcornDrink = "Bap size S", _PopcornDrinkPrice = 10000, _Quantity = 2},
+                new PopcornDrinkOrder{_IDPopcornDrinkOrder = "pdorder000000030", _IDOrder = "oder000000015", _NamePopcornDrink = "Bap size S", _PopcornDrinkPrice = 10000, _Quantity = 1},
+                new PopcornDrinkOrder{_IDPopcornDrinkOrder = "pdorder000000031", _IDOrder = "oder000000016", _NamePopcornDrink = "Bap size S", _PopcornDrinkPrice = 10000, _Quantity = 2},
+                new PopcornDrinkOrder{_IDPopcornDrinkOrder = "pdorder000000032", _IDOrder = "oder000000016", _NamePopcornDrink = "Bap size S", _PopcornDrinkPrice = 10000, _Quantity = 1},
+                new PopcornDrinkOrder{_IDPopcornDrinkOrder = "pdorder000000033", _IDOrder = "oder000000017", _NamePopcornDrink = "Bap size S", _PopcornDrinkPrice = 10000, _Quantity = 2},
+                new PopcornDrinkOrder{_IDPopcornDrinkOrder = "pdorder000000034", _IDOrder = "oder000000018", _NamePopcornDrink = "Bap size S", _PopcornDrinkPrice = 10000, _Quantity = 2},
+                new PopcornDrinkOrder{_IDPopcornDrinkOrder = "pdorder000000035", _IDOrder = "oder000000019", _NamePopcornDrink = "Bap size S", _PopcornDrinkPrice = 10000, _Quantity = 2},
+                new PopcornDrinkOrder{_IDPopcornDrinkOrder = "pdorder000000036", _IDOrder = "oder000000019", _NamePopcornDrink = "Bap size S", _PopcornDrinkPrice = 10000, _Quantity = 2},
+                new PopcornDrinkOrder{_IDPopcornDrinkOrder = "pdorder000000037", _IDOrder = "oder000000019", _NamePopcornDrink = "Bap size S", _PopcornDrinkPrice = 10000, _Quantity = 2},
+                new PopcornDrinkOrder{_IDPopcornDrinkOrder = "pdorder000000038", _IDOrder = "oder000000019", _NamePopcornDrink = "Bap size S", _PopcornDrinkPrice = 10000, _Quantity = 2},
+                new PopcornDrinkOrder{_IDPopcornDrinkOrder = "pdorder000000039", _IDOrder = "oder000000020", _NamePopcornDrink = "Bap size S", _PopcornDrinkPrice = 10000, _Quantity = 2},
+                new PopcornDrinkOrder{_IDPopcornDrinkOrder = "pdorder000000040", _IDOrder = "oder000000020", _NamePopcornDrink = "Bap size S", _PopcornDrinkPrice = 10000, _Quantity = 1},
+                new PopcornDrinkOrder{_IDPopcornDrinkOrder = "pdorder000000041", _IDOrder = "oder000000021", _NamePopcornDrink = "Bap size S", _PopcornDrinkPrice = 10000, _Quantity = 2},
+                new PopcornDrinkOrder{_IDPopcornDrinkOrder = "pdorder000000042", _IDOrder = "oder000000021", _NamePopcornDrink = "Bap size S", _PopcornDrinkPrice = 10000, _Quantity = 2},
+                new PopcornDrinkOrder{_IDPopcornDrinkOrder = "pdorder000000043", _IDOrder = "oder000000022", _NamePopcornDrink = "Bap size S", _PopcornDrinkPrice = 10000, _Quantity = 2},
+                new PopcornDrinkOrder{_IDPopcornDrinkOrder = "pdorder000000044", _IDOrder = "oder000000022", _NamePopcornDrink = "Bap size S", _PopcornDrinkPrice = 10000, _Quantity = 2},
+                new PopcornDrinkOrder{_IDPopcornDrinkOrder = "pdorder000000045", _IDOrder = "oder000000023", _NamePopcornDrink = "Bap size S", _PopcornDrinkPrice = 10000, _Quantity = 1},
+                new PopcornDrinkOrder{_IDPopcornDrinkOrder = "pdorder000000046", _IDOrder = "oder000000023", _NamePopcornDrink = "Bap size S", _PopcornDrinkPrice = 10000, _Quantity = 2},
+                new PopcornDrinkOrder{_IDPopcornDrinkOrder = "pdorder000000047", _IDOrder = "oder000000024", _NamePopcornDrink = "Bap size S", _PopcornDrinkPrice = 10000, _Quantity = 2},
+                new PopcornDrinkOrder{_IDPopcornDrinkOrder = "pdorder000000048", _IDOrder = "oder000000024", _NamePopcornDrink = "Bap size S", _PopcornDrinkPrice = 10000, _Quantity = 2},
+                new PopcornDrinkOrder{_IDPopcornDrinkOrder = "pdorder000000049", _IDOrder = "oder000000025", _NamePopcornDrink = "Bap size S", _PopcornDrinkPrice = 10000, _Quantity = 1},
+                new PopcornDrinkOrder{_IDPopcornDrinkOrder = "pdorder000000050", _IDOrder = "oder000000025", _NamePopcornDrink = "Bap size S", _PopcornDrinkPrice = 10000, _Quantity = 2},
+                new PopcornDrinkOrder{_IDPopcornDrinkOrder = "pdorder000000051", _IDOrder = "oder000000026", _NamePopcornDrink = "Bap size S", _PopcornDrinkPrice = 10000, _Quantity = 2},
+                new PopcornDrinkOrder{_IDPopcornDrinkOrder = "pdorder000000052", _IDOrder = "oder000000026", _NamePopcornDrink = "Bap size S", _PopcornDrinkPrice = 10000, _Quantity = 1},
+                new PopcornDrinkOrder{_IDPopcornDrinkOrder = "pdorder000000053", _IDOrder = "oder000000026", _NamePopcornDrink = "Bap size S", _PopcornDrinkPrice = 10000, _Quantity = 2},
+                new PopcornDrinkOrder{_IDPopcornDrinkOrder = "pdorder000000054", _IDOrder = "oder000000026", _NamePopcornDrink = "Bap size S", _PopcornDrinkPrice = 10000, _Quantity = 2},
+                new PopcornDrinkOrder{_IDPopcornDrinkOrder = "pdorder000000055", _IDOrder = "oder000000026", _NamePopcornDrink = "Bap size S", _PopcornDrinkPrice = 10000, _Quantity = 1},
+                new PopcornDrinkOrder{_IDPopcornDrinkOrder = "pdorder000000056", _IDOrder = "oder000000027", _NamePopcornDrink = "Bap size S", _PopcornDrinkPrice = 10000, _Quantity = 2},
+                new PopcornDrinkOrder{_IDPopcornDrinkOrder = "pdorder000000057", _IDOrder = "oder000000028", _NamePopcornDrink = "Bap size S", _PopcornDrinkPrice = 10000, _Quantity = 2},
+                new PopcornDrinkOrder{_IDPopcornDrinkOrder = "pdorder000000058", _IDOrder = "oder000000028", _NamePopcornDrink = "Bap size S", _PopcornDrinkPrice = 10000, _Quantity = 1},
+                new PopcornDrinkOrder{_IDPopcornDrinkOrder = "pdorder000000059", _IDOrder = "oder000000029", _NamePopcornDrink = "Bap size S", _PopcornDrinkPrice = 10000, _Quantity = 6},
+                new PopcornDrinkOrder{_IDPopcornDrinkOrder = "pdorder000000060", _IDOrder = "oder000000029", _NamePopcornDrink = "Bap size S", _PopcornDrinkPrice = 10000, _Quantity = 2},
+                new PopcornDrinkOrder{_IDPopcornDrinkOrder = "pdorder000000061", _IDOrder = "oder000000030", _NamePopcornDrink = "Bap size S", _PopcornDrinkPrice = 10000, _Quantity = 2},
+                new PopcornDrinkOrder{_IDPopcornDrinkOrder = "pdorder000000062", _IDOrder = "oder000000030", _NamePopcornDrink = "Bap size S", _PopcornDrinkPrice = 10000, _Quantity = 2},
+            });
+            context._TicketOrders.AddRange(new TicketOrder[]
+            {
+                new TicketOrder{_IDOrder = "order000000001", _IDShowTime = "showtime000000001", _SeatPurchased = "1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"},
+                new TicketOrder{_IDOrder = "order000000002", _IDShowTime = "showtime000000002", _SeatPurchased = "0110000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"},
+                new TicketOrder{_IDOrder = "order000000003", _IDShowTime = "showtime000000003", _SeatPurchased = "0001110000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"},
+                new TicketOrder{_IDOrder = "order000000004", _IDShowTime = "showtime000000004", _SeatPurchased = "0000001111000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"},
+                new TicketOrder{_IDOrder = "order000000005", _IDShowTime = "showtime000000005", _SeatPurchased = "0000000000111110000000000000000000000000000000000000000000000000000000000000000000000000000000000000"},
+                new TicketOrder{_IDOrder = "order000000006", _IDShowTime = "showtime000000006", _SeatPurchased = "0000000000000001111110000000000000000000000000000000000000000000000000000000000000000000000000000000"},
+                new TicketOrder{_IDOrder = "order000000007", _IDShowTime = "showtime000000007", _SeatPurchased = "0000000000000000000001111111000000000000000000000000000000000000000000000000000000000000000000000000"},
+                new TicketOrder{_IDOrder = "order000000008", _IDShowTime = "showtime000000008", _SeatPurchased = "0000000000000000000000000000111111110000000000000000000000000000000000000000000000000000000000000000"},
+                new TicketOrder{_IDOrder = "order000000009", _IDShowTime = "showtime000000009", _SeatPurchased = "0000000000000000000000000000000000001111111110000000000000000000000000000000000000000000000000000000"},
+                new TicketOrder{_IDOrder = "order000000010", _IDShowTime = "showtime000000010", _SeatPurchased = "0000000000000000000000000000000000000000000001111111111000000000000000000000000000000000000000000000"},
+                new TicketOrder{_IDOrder = "order000000011", _IDShowTime = "showtime000000011", _SeatPurchased = "1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"},
+                new TicketOrder{_IDOrder = "order000000012", _IDShowTime = "showtime000000012", _SeatPurchased = "0110000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"},
+                new TicketOrder{_IDOrder = "order000000013", _IDShowTime = "showtime000000013", _SeatPurchased = "0001110000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"},
+                new TicketOrder{_IDOrder = "order000000014", _IDShowTime = "showtime000000014", _SeatPurchased = "0000001111000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"},
+                new TicketOrder{_IDOrder = "order000000015", _IDShowTime = "showtime000000015", _SeatPurchased = "0000000000111110000000000000000000000000000000000000000000000000000000000000000000000000000000000000"},
+                new TicketOrder{_IDOrder = "order000000016", _IDShowTime = "showtime000000016", _SeatPurchased = "0000000000000001111110000000000000000000000000000000000000000000000000000000000000000000000000000000"},
+                new TicketOrder{_IDOrder = "order000000017", _IDShowTime = "showtime000000017", _SeatPurchased = "0000000000000000000001111111000000000000000000000000000000000000000000000000000000000000000000000000"},
+                new TicketOrder{_IDOrder = "order000000018", _IDShowTime = "showtime000000018", _SeatPurchased = "0000000000000000000000000000111111110000000000000000000000000000000000000000000000000000000000000000"},
+                new TicketOrder{_IDOrder = "order000000019", _IDShowTime = "showtime000000019", _SeatPurchased = "0000000000000000000000000000000000001111111110000000000000000000000000000000000000000000000000000000"},
+                new TicketOrder{_IDOrder = "order000000020", _IDShowTime = "showtime000000020", _SeatPurchased = "0000000000000000000000000000000000000000000001111111111000000000000000000000000000000000000000000000"},
+                new TicketOrder{_IDOrder = "order000000021", _IDShowTime = "showtime000000021", _SeatPurchased = "1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"},
+                new TicketOrder{_IDOrder = "order000000022", _IDShowTime = "showtime000000022", _SeatPurchased = "0110000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"},
+                new TicketOrder{_IDOrder = "order000000023", _IDShowTime = "showtime000000023", _SeatPurchased = "0001110000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"},
+                new TicketOrder{_IDOrder = "order000000024", _IDShowTime = "showtime000000024", _SeatPurchased = "0000001111000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"},
+                new TicketOrder{_IDOrder = "order000000025", _IDShowTime = "showtime000000025", _SeatPurchased = "0000000000111110000000000000000000000000000000000000000000000000000000000000000000000000000000000000"},
+                new TicketOrder{_IDOrder = "order000000026", _IDShowTime = "showtime000000026", _SeatPurchased = "0000000000000001111110000000000000000000000000000000000000000000000000000000000000000000000000000000"},
+                new TicketOrder{_IDOrder = "order000000027", _IDShowTime = "showtime000000027", _SeatPurchased = "0000000000000000000001111111000000000000000000000000000000000000000000000000000000000000000000000000"},
+                new TicketOrder{_IDOrder = "order000000028", _IDShowTime = "showtime000000028", _SeatPurchased = "0000000000000000000000000000111111110000000000000000000000000000000000000000000000000000000000000000"},
+                new TicketOrder{_IDOrder = "order000000029", _IDShowTime = "showtime000000029", _SeatPurchased = "0000000000000000000000000000000000001111111110000000000000000000000000000000000000000000000000000000"},
+                new TicketOrder{_IDOrder = "order000000030", _IDShowTime = "showtime000000030", _SeatPurchased = "0000000000000000000000000000000000000000000001111111111000000000000000000000000000000000000000000000"},
+            });
+            context._ShowTimes.AddRange(new ShowTime[]
+            {
+                new ShowTime{_IDShowTime = "showtime000000001", _IDMovie = "movie000001", _IDRoom = "room01", _Seat = "1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000", _Time = new DateTime(2022, 5, 1, 15, 30, 0), _TicketPrice = 50000},
+                new ShowTime{_IDShowTime = "showtime000000002", _IDMovie = "movie000002", _IDRoom = "room02", _Seat = "0110000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000", _Time = new DateTime(2022, 5, 1, 15, 30, 0), _TicketPrice = 50000},
+                new ShowTime{_IDShowTime = "showtime000000003", _IDMovie = "movie000003", _IDRoom = "room03", _Seat = "0001110000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000", _Time = new DateTime(2022, 5, 1, 15, 30, 0), _TicketPrice = 50000},
+                new ShowTime{_IDShowTime = "showtime000000004", _IDMovie = "movie000004", _IDRoom = "room04", _Seat = "0000001111000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000", _Time = new DateTime(2022, 5, 1, 15, 30, 0), _TicketPrice = 50000},
+                new ShowTime{_IDShowTime = "showtime000000005", _IDMovie = "movie000005", _IDRoom = "room05", _Seat = "0000000000111110000000000000000000000000000000000000000000000000000000000000000000000000000000000000", _Time = new DateTime(2022, 5, 1, 15, 30, 0), _TicketPrice = 50000},
+                new ShowTime{_IDShowTime = "showtime000000006", _IDMovie = "movie000001", _IDRoom = "room01", _Seat = "0000000000000001111110000000000000000000000000000000000000000000000000000000000000000000000000000000", _Time = new DateTime(2022, 5, 1, 12, 30, 0), _TicketPrice = 50000},
+                new ShowTime{_IDShowTime = "showtime000000007", _IDMovie = "movie000002", _IDRoom = "room02", _Seat = "0000000000000000000001111111000000000000000000000000000000000000000000000000000000000000000000000000", _Time = new DateTime(2022, 5, 1, 12, 30, 0), _TicketPrice = 50000},
+                new ShowTime{_IDShowTime = "showtime000000008", _IDMovie = "movie000003", _IDRoom = "room03", _Seat = "0000000000000000000000000000111111110000000000000000000000000000000000000000000000000000000000000000", _Time = new DateTime(2022, 5, 1, 12, 30, 0), _TicketPrice = 50000},
+                new ShowTime{_IDShowTime = "showtime000000009", _IDMovie = "movie000004", _IDRoom = "room04", _Seat = "0000000000000000000000000000000000001111111110000000000000000000000000000000000000000000000000000000", _Time = new DateTime(2022, 5, 1, 12, 30, 0), _TicketPrice = 50000},
+                new ShowTime{_IDShowTime = "showtime000000010", _IDMovie = "movie000005", _IDRoom = "room05", _Seat = "0000000000000000000000000000000000000000000001111111111000000000000000000000000000000000000000000000", _Time = new DateTime(2022, 5, 1, 12, 30, 0), _TicketPrice = 50000},
+                new ShowTime{_IDShowTime = "showtime000000011", _IDMovie = "movie000001", _IDRoom = "room01", _Seat = "1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000", _Time = new DateTime(2022, 5, 1, 18, 30, 0), _TicketPrice = 50000},
+                new ShowTime{_IDShowTime = "showtime000000012", _IDMovie = "movie000002", _IDRoom = "room02", _Seat = "0110000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000", _Time = new DateTime(2022, 5, 1, 18, 30, 0), _TicketPrice = 50000},
+                new ShowTime{_IDShowTime = "showtime000000013", _IDMovie = "movie000003", _IDRoom = "room03", _Seat = "0001110000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000", _Time = new DateTime(2022, 5, 1, 18, 30, 0), _TicketPrice = 50000},
+                new ShowTime{_IDShowTime = "showtime000000014", _IDMovie = "movie000004", _IDRoom = "room04", _Seat = "0000001111000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000", _Time = new DateTime(2022, 5, 1, 18, 30, 0), _TicketPrice = 50000},
+                new ShowTime{_IDShowTime = "showtime000000015", _IDMovie = "movie000005", _IDRoom = "room05", _Seat = "0000000000111110000000000000000000000000000000000000000000000000000000000000000000000000000000000000", _Time = new DateTime(2022, 5, 1, 18, 30, 0), _TicketPrice = 50000},
+                new ShowTime{_IDShowTime = "showtime000000016", _IDMovie = "movie000001", _IDRoom = "room01", _Seat = "0000000000000001111110000000000000000000000000000000000000000000000000000000000000000000000000000000", _Time = new DateTime(2022, 5, 1, 6, 30, 0), _TicketPrice = 50000},
+                new ShowTime{_IDShowTime = "showtime000000017", _IDMovie = "movie000002", _IDRoom = "room02", _Seat = "0000000000000000000001111111000000000000000000000000000000000000000000000000000000000000000000000000", _Time = new DateTime(2022, 5, 1, 6, 30, 0), _TicketPrice = 50000},
+                new ShowTime{_IDShowTime = "showtime000000018", _IDMovie = "movie000003", _IDRoom = "room03", _Seat = "0000000000000000000000000000111111110000000000000000000000000000000000000000000000000000000000000000", _Time = new DateTime(2022, 5, 1, 6, 30, 0), _TicketPrice = 50000},
+                new ShowTime{_IDShowTime = "showtime000000019", _IDMovie = "movie000004", _IDRoom = "room04", _Seat = "0000000000000000000000000000000000001111111110000000000000000000000000000000000000000000000000000000", _Time = new DateTime(2022, 5, 1, 6, 30, 0), _TicketPrice = 50000},
+                new ShowTime{_IDShowTime = "showtime000000020", _IDMovie = "movie000005", _IDRoom = "room05", _Seat = "0000000000000000000000000000000000000000000001111111111000000000000000000000000000000000000000000000", _Time = new DateTime(2022, 5, 1, 6, 30, 0), _TicketPrice = 50000},
+                new ShowTime{_IDShowTime = "showtime000000021", _IDMovie = "movie000001", _IDRoom = "room01", _Seat = "1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000", _Time = new DateTime(2022, 5, 1, 9, 30, 0), _TicketPrice = 50000},
+                new ShowTime{_IDShowTime = "showtime000000022", _IDMovie = "movie000002", _IDRoom = "room02", _Seat = "0110000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000", _Time = new DateTime(2022, 5, 1, 9, 30, 0), _TicketPrice = 50000},
+                new ShowTime{_IDShowTime = "showtime000000023", _IDMovie = "movie000003", _IDRoom = "room03", _Seat = "0001110000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000", _Time = new DateTime(2022, 5, 1, 9, 30, 0), _TicketPrice = 50000},
+                new ShowTime{_IDShowTime = "showtime000000024", _IDMovie = "movie000004", _IDRoom = "room04", _Seat = "0000001111000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000", _Time = new DateTime(2022, 5, 1, 9, 30, 0), _TicketPrice = 50000},
+                new ShowTime{_IDShowTime = "showtime000000025", _IDMovie = "movie000005", _IDRoom = "room05", _Seat = "0000000000111110000000000000000000000000000000000000000000000000000000000000000000000000000000000000", _Time = new DateTime(2022, 5, 1, 9, 30, 0), _TicketPrice = 50000},
+                new ShowTime{_IDShowTime = "showtime000000026", _IDMovie = "movie000001", _IDRoom = "room01", _Seat = "0000000000000001111110000000000000000000000000000000000000000000000000000000000000000000000000000000", _Time = new DateTime(2022, 5, 1, 21, 30, 0), _TicketPrice = 50000},
+                new ShowTime{_IDShowTime = "showtime000000027", _IDMovie = "movie000002", _IDRoom = "room02", _Seat = "0000000000000000000001111111000000000000000000000000000000000000000000000000000000000000000000000000", _Time = new DateTime(2022, 5, 1, 21, 30, 0), _TicketPrice = 50000},
+                new ShowTime{_IDShowTime = "showtime000000028", _IDMovie = "movie000003", _IDRoom = "room03", _Seat = "0000000000000000000000000000111111110000000000000000000000000000000000000000000000000000000000000000", _Time = new DateTime(2022, 5, 1, 21, 30, 0), _TicketPrice = 50000},
+                new ShowTime{_IDShowTime = "showtime000000029", _IDMovie = "movie000004", _IDRoom = "room04", _Seat = "0000000000000000000000000000000000001111111110000000000000000000000000000000000000000000000000000000", _Time = new DateTime(2022, 5, 1, 21, 30, 0), _TicketPrice = 50000},
+                new ShowTime{_IDShowTime = "showtime000000030", _IDMovie = "movie000005", _IDRoom = "room05", _Seat = "0000000000000000000000000000000000000000000001111111111000000000000000000000000000000000000000000000", _Time = new DateTime(2022, 5, 1, 21, 30, 0), _TicketPrice = 50000},
+            });
+            context._Movies.AddRange(new Movie[]
+            {
+                new Movie{_IDMovie = "movie000001", _Actor = "NVA1, NVA2, NVA3,...", _Director = "NVD1", _Description = "Noi dung phim 1", _Category = "The loai 1, The loai 2", _Duration = new TimeSpan(2, 30, 20)},
+                new Movie{_IDMovie = "movie000002", _Actor = "NVA1, NVA2, NVA4,...", _Director = "NVD2", _Description = "Noi dung phim 2", _Category = "The loai 4, The loai 2", _Duration = new TimeSpan(3, 30, 20)},
+                new Movie{_IDMovie = "movie000003", _Actor = "NVA1, NVA3, NVA5,...", _Director = "NVD3", _Description = "Noi dung phim 3", _Category = "The loai 5", _Duration = new TimeSpan(2, 10, 20)},
+                new Movie{_IDMovie = "movie000004", _Actor = "NVA1, NVA4, NVA9,...", _Director = "NVD1", _Description = "Noi dung phim 4", _Category = "The loai 1, The loai 3", _Duration = new TimeSpan(1, 30, 20)},
+                new Movie{_IDMovie = "movie000005", _Actor = "NVA3, NVA2, NVA10,...", _Director = "NVD1", _Description = "Noi dung phim 5", _Category = "The loai 1, The loai 2", _Duration = new TimeSpan(4, 30, 20)},
+
+            });
+            context._Rooms.AddRange(new Room[]
+            {
+                new Room{_IDRoom = "room01", _NameRoom = "Rap 1", _NumofSeats = 100},
+                new Room{_IDRoom = "room02", _NameRoom = "Rap 2", _NumofSeats = 100},
+                new Room{_IDRoom = "room03", _NameRoom = "Rap 3", _NumofSeats = 100},
+                new Room{_IDRoom = "room04", _NameRoom = "Rap 4", _NumofSeats = 100},
+                new Room{_IDRoom = "room05", _NameRoom = "Rap 5", _NumofSeats = 100},
+            });
+            context._PopcornDrinks.AddRange(new PopcornDrink[]
+            {
+                new PopcornDrink{_IDPopcornDrink = 1, _NamePopcornDrink = "Bap size S", _PricePopcornDrink = 10000},
+                new PopcornDrink{_IDPopcornDrink = 1, _NamePopcornDrink = "Bap size M", _PricePopcornDrink = 18000},
+                new PopcornDrink{_IDPopcornDrink = 1, _NamePopcornDrink = "Bap size L", _PricePopcornDrink = 20000},
+                new PopcornDrink{_IDPopcornDrink = 1, _NamePopcornDrink = "Pepsi size S", _PricePopcornDrink = 10000},
+                new PopcornDrink{_IDPopcornDrink = 1, _NamePopcornDrink = "Pepsi size M", _PricePopcornDrink = 18000},
+                new PopcornDrink{_IDPopcornDrink = 1, _NamePopcornDrink = "Pepsi size L", _PricePopcornDrink = 20000},
+            });
+        }
+    }
+}

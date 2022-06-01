@@ -11,7 +11,7 @@ namespace WindowsFormsApp1.DTO.DTO_PopcornDrink
     {
         [Key]
         [Required]
-        public int _IDPopcornDrink { get; set; }
+        public string _IDPopcornDrink { get; set; }
         public string _NamePopcornDrink { get; set; }
         public int _PricePopcornDrink { get; set; }
     }
